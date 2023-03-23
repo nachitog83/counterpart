@@ -1,0 +1,63 @@
+version: '3.5'
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    container_name: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=counterpart
+    restart: unless-stopped
+    networks:
+      - database_network
+
+  redis:
+    image: redis:6.2.6
+    restart: unless-stopped
+    container_name: redis
+    networks:
+      - redis_network
+
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - SECRET_KEY
+    container_name: django-app
+    depends_on:
+      - db
+      - redis
+    command: gunicorn --bind 0.0.0.0:8000 --log-level debug --timeout 3600 --reload app.wsgi
+    # stdin_open: true
+    # tty: true
+    volumes:
+      - ./src:/src
+      - static_files_volume:/src/static
+    restart: unless-stopped
+    networks:
+      - database_network
+      - redis_network
+    env_file:
+      - ./.env
+    # environment:
+    #   - SECRET_KEY
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+
+volumes:
+  static_files_volume:
+  postgres_data:
+
+networks:
+  database_network:
+  redis_network:

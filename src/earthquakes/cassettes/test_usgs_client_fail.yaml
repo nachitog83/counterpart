@@ -1,0 +1,83 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.28.1
+    method: GET
+    uri: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=1&endtime=2&minmagnitude=5&orderby=time
+  response:
+    body:
+      string: 'Error 400: Bad Request
+
+
+        Bad starttime value "1". Valid values are ISO-8601 timestamps.
+
+
+        Usage details are available from https://earthquake.usgs.gov/fdsnws/event/1
+
+
+        Request:
+
+        /fdsnws/event/1/query?format=geojson&starttime=1&endtime=2&minmagnitude=5&orderby=time
+
+
+        Request Submitted:
+
+        2022-10-19T11:24:44+00:00
+
+
+        Service version:
+
+        1.13.6'
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '86400'
+      Cache-Control:
+      - public, max-age=60
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '331'
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Date:
+      - Wed, 19 Oct 2022 11:24:44 GMT
+      Expires:
+      - Wed, 19 Oct 2022 11:25:44 GMT
+      Last-Modified:
+      - Wed, 19 Oct 2022 11:24:44 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Via:
+      - 1.1 038457f797aa314915a62d82c1c45e26.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - DSD6cR0ZPRzHL58qVHWvrgt3zjgK5-ra0tqGeJeMlafpSlK1Io_n9w==
+      X-Amz-Cf-Pop:
+      - MIA3-P2
+      X-Cache:
+      - Error from cloudfront
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 400
+      message: Bad Request
+version: 1

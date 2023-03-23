@@ -1,0 +1,41 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - MyApp
+    method: GET
+    uri: https://nominatim.openstreetmap.org/search?q=Los+Angeles%2C+US&format=json&limit=1
+  response:
+    body:
+      string: "[{\"place_id\":298053741,\"licence\":\"Data \xA9 OpenStreetMap contributors,
+        ODbL 1.0. https://osm.org/copyright\",\"osm_type\":\"relation\",\"osm_id\":207359,\"boundingbox\":[\"33.659541\",\"34.337306\",\"-118.6681779\",\"-118.1552947\"],\"lat\":\"34.0536909\",\"lon\":\"-118.242766\",\"display_name\":\"Los
+        Angeles, Los Angeles County, CAL Fire Southern Region, California, United
+        States\",\"class\":\"boundary\",\"type\":\"administrative\",\"importance\":0.9738053728457621,\"icon\":\"https://nominatim.openstreetmap.org/ui/mapicons/poi_boundary_administrative.p.20.png\"}]"
+    headers:
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 19 Oct 2022 00:58:26 GMT
+      Keep-Alive:
+      - timeout=20
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+version: 1

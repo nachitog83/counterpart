@@ -1,0 +1,4 @@
+*.zip
+src/.pytest_cache/
+src/.vscode
+src/.coverage

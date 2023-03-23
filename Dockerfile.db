@@ -1,0 +1,11 @@
+FROM postgres:14.1
+
+# Variables needed at runtime to configure postgres and run the initdb scripts
+ENV POSTGRES_USER 'postgres'
+ENV POSTGRES_PASSWORD 'postgres'
+
+# Install Debian packages and Miniconda
+RUN apt-get -qq update && apt-get -qq -y install apt-utils postgis postgresql-14-postgis-3
+
+# Copy in the load-extensions script
+COPY load-extensions.sh /docker-entrypoint-initdb.d/
